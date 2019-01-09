@@ -1,6 +1,6 @@
 from selenium import webdriver    #引入selenium中webdriver这样一个库
 
-driver = webdriver.Chrome(executable_path='./chromedriver')    #创建一个chrome浏览器实例，加上执行的路径
+driver = webdriver.Chrome(executable_path='./chromedriver')    #创建一个chrome浏览器实例，加上执行的路径 。/代表当前路径
 
 driver.get('http://www.baidu.com') #该处为具体网址，用chrome浏览器打开百度
 
