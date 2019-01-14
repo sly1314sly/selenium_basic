@@ -28,7 +28,7 @@
 
 # print(driver.title)   #打印网页标题
 
-# text = driver.find_element_by_css_selector('.price.J-p-100000483381').text  #css的选择器
+# text = driver.find_element_by_css_selector('.price.J-p-100000483381').text  #css的选择器,打印商品价格
 # print(text)
 
 # text2 = driver.find_element_by_css_selector('#summary-service>.hl_red').text
@@ -54,17 +54,17 @@
 
 
 
-#查看京东上搜也搜索手机，一页展示信息分别点击查看
-from selenium import webdriver
+# # #查看京东上搜也搜索手机，一页展示信息分别点击查看*********************************************
+# from selenium import webdriver
 
-import time   
+# import time   
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
 
-driver.get('https://search.jd.com/Search?keyword=%E6%89%8B%E6%9C%BA&enc=utf-8&wq=%E6%89%8B%E6%9C%BA&pvid=91a04aab85a446d58abbb0a39947ed5f') 
+# driver.get('https://search.jd.com/Search?keyword=%E6%89%8B%E6%9C%BA&enc=utf-8&wq=%E6%89%8B%E6%9C%BA&pvid=91a04aab85a446d58abbb0a39947ed5f') 
 
-eles = driver.find_elements_by_css_selector('.gl-item > div > div.p-img > a') 
-count = len(eles)
+# eles = driver.find_elements_by_css_selector('.gl-item > div > div.p-img > a') 
+# count = len(eles)
 
 # for index in range(count):
 #     i = index+1
@@ -73,10 +73,37 @@ count = len(eles)
 #     driver.find_element_by_css_selector(css).click()
 #     driver.back()
 
+#  #####未能实现
+
+#  打开一个页面，点击链接跳入到新的页面，需要做切换页面的操作，才能对第二个页面进行操作
 
 
+from selenium import webdriver
 
-for index in range(count):
-    i = index+1
-    driver.find_element_by_css_selector(".gl-item>div>div.p-img > a:nth-child("+str(i)+")").click()
-    driver.quit()
+import time
+
+driver = webdriver.Chrome()
+
+
+driver.get('https://search.jd.com/Search?keyword=%E6%89%8B%E6%9C%BA&enc=utf-8&wq=%E6%89%8B%E6%9C%BA&pvid=91a04aab85a446d58abbb0a39947ed5f') 
+
+print("打开首页之后，浏览器tab页面个数",len(driver.window_handles))  
+
+
+eles = driver.find_elements_by_css_selector('.gl-item>div>div.p-img>a:nth-child(1)') 
+
+print(len(eles))
+
+eles[0].click()
+
+# allwindows = driver.window_handles  #所有的窗口
+
+print(driver.window_handles)
+
+print("打开第一个页面之后，浏览器tab页面个数",len(driver.window_handles)) 
+
+driver.switch_to.window(driver.window_handles[1])    #切换页面
+
+text = driver.find_element_by_css_selector('price J-p-100002332162').text
+
+print(text)
