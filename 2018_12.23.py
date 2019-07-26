@@ -2,7 +2,7 @@
 
 
 from selenium import webdriver    #引入selenium中webdriver这样一个库
-driver = webdriver.Chrome(executable_path='./chromedriver')    #创建一个chrome浏览器实例，加上执行的路径 。/代表当前路径
+driver = webdriver.Chrome(executable_path='./chromedriver')    #创建一个chrome浏览器实例，加上执行的路径 。/代表当前路径(把chromedriver放到环境变量，就不用每次加命令)
 driver.get('http://www.baidu.com') #该处为具体网址，用chrome浏览器打开百度
 
 
@@ -30,5 +30,5 @@ driver.get('http://www.baidu.com') #该处为具体网址，用chrome浏览器�
 #四、web自动化selenium如何自动上传文件
 
 
-# driver.find_element_by_css_selector('span[class="soutu-btn"]').click()
+# driver.find_element_by_css_selector('span[class="soutu-btn"]').click() 点击
 # driver.find_element_by_css_selector('input[type="file"]').send_keys('/Users/songluyao/Desktop/selenium_basic/aaa.jpg')
