@@ -313,7 +313,7 @@ if __name__=='__main__':
 
 # 十、selenium实战，使用action进行发帖操作
 
-
+####################################################################################
 # 十一、Excel文件处理—xlrd库简介
 
 # 安装xlrd ： pip install xlrd
@@ -331,7 +331,7 @@ if __name__=='__main__':
 #     print(sh.row(rx))
 
 
-############################
+####################################################################################
 # python 对 excel基本的操作如下：
 
 # # -*- coding: utf-8 -*-
@@ -370,7 +370,7 @@ if __name__=='__main__':
 # if __name__ == '__main__':
 #   read_excel()
 
-############################
+####################################################################################
 # 十二、查找多个元素
 
 #页面所有手机价格找到打印出来
@@ -382,4 +382,104 @@ if __name__=='__main__':
 # for index in range(len(eles)):
 #     print(eles[index].text)
 
-#十三、excel文件处理——写入到文件
+####################################################################################
+#十三、excel文件处理——写入到文件xlwt
+
+# 安装xlwt ： pip install xlwt
+# github文档：https://github.com/python-excel/xlwt
+ #简单使用
+# import xlwt #引入库
+# from datetime import datetime  #引入时间
+
+# style0 = xlwt.easyxf('font: name Times New Roman, color-index red, bold on', num_format_str='#,##0.00')  #字体、颜色等样式的一些设置，字符串的一些格式
+# style1 = xlwt.easyxf(num_format_str='D-MMM-YY') #日期的格式
+
+# wb = xlwt.Workbook()  #创建一个excel
+# ws = wb.add_sheet('A Test Sheet') # 创建一个sheet表
+
+# #往sheet里面填写信息
+# ws.write(0, 0, 1234.56, style0)  #第一行第一列，填入值1234.56，使用style0样式
+# ws.write(1, 0, datetime.now(), style1)
+# ws.write(2, 0, 1)
+# ws.write(2, 1, 1)
+# ws.write(2, 2, xlwt.Formula("A3+B3"))
+
+# wb.save('example.xls') #文件保存
+
+####################################################################################
+
+# 练习：找到手机价格，保存到excel文件
+# from selenium import webdriver
+# import xlwt
+# from datetime import datetime
+# driver = webdriver.Chrome()
+
+# driver.get('https://search.jd.com/Search?keyword=%E6%89%8B%E6%9C%BA&enc=utf-8&wq=%E6%89%8B%E6%9C%BA&pvid=91a04aab85a446d58abbb0a39947ed5f') 
+# price_eles = driver.find_elements_by_css_selector('li.gl-item .p-price') 
+# desc_eles = driver.find_elements_by_css_selector('div.p-name.p-name-type-2') 
+
+# count = len(price_eles)
+
+# wb = xlwt.Workbook()  #创建一个excel
+# ws = wb.add_sheet('jd手机价格') # 创建一个sheet表
+
+# ws.write(0,0,'手机')
+# ws.write(0,1,'价格')
+
+
+# for index in range(count):
+#     ws.write(index+1,0,desc_eles[index].text)
+#     ws.write(index+1,1,price_eles[index].text)
+
+# wb.save('phone.xls')
+
+####################################################################################
+#十四、使用人工智能识别图片验证码
+#https://ai.baidu.com/docs#/OCR-API/top
+
+
+# from selenium import webdriver  
+# import requests,base64
+# import time
+
+# driver = webdriver.Chrome()  
+# driver.get('http://dev.console.jobsaas.com')
+
+# time.sleep(2) 
+
+# driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div/div[2]/form/div[2]/div[1]/div/div[1]/input').send_keys("15256558113")
+# driver.find_element_by_css_selector('input[type="password"]').send_keys("558113")
+
+# image_ele = driver.find_element_by_css_selector('div.loginVerImg.fr > img') #找到图片验证码位置
+
+# image_ele.screenshot('./image.png') #把图片截图保存下来
+
+
+# #获取百度APK的token。client_id 为官网获取的AK，client_secret 为官网获取的SK
+# host = 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=gZcF5SoXusyYZbmdXb6x8YFq&client_secret=q5ylwgyYulmxd4boMa1qLDkAMDIAy8Eu'
+# res= requests.get(host) #用requeest发用get请求
+# r =res.json()
+# print(r)
+
+# access_token = r['access_token'] #获取json里面的token
+# print(access_token)
+
+# # access_token = '#####调用鉴权接口获取的token#####'
+# url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token='+access_token
+# # 二进制方式打开图文件
+# f = open(r'./image.png', 'rb')
+# # 参数image：图像base64编码
+# img = base64.b64encode(f.read())
+# params = {"image": img}
+# imageres = requests.post(url, data=params) #用这个方法上传上去，上传url和数据
+# image_json = imageres.json() #返回结果
+# print(imageres.json())
+
+# image_num = image_json['words_result'][0]['words']
+# driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div/div[2]/form/div[2]/div[3]/div/div[1]/input').send_keys(image_num)
+
+
+
+
+####################################################################################
+#十五、
