@@ -131,10 +131,6 @@ actions = ActionChains(driver)
 actions.move_to_element(content_area)
 actions.send_keys('hff而且')
 
-# actions.send_keys(Keys.Control,'a')         #全选
-# actions.send_keys(Keys.Control,'c')         #复制
-# actions.send_keys(Keys.Control,'v')         #粘贴
-
 actions.perform()
 
 driver.find_element_by_xpath('//*[@type="submit"]').click() #提交

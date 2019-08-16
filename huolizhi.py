@@ -1,3 +1,5 @@
+#登录
+
 from selenium import webdriver  
 import requests,base64
 import time
@@ -35,6 +37,11 @@ imageres = requests.post(url, data=params) #用这个方法上传上去，上传
 image_json = imageres.json() #返回结果
 print(imageres.json())
 
-image_num = image_json['words_result'][0]['words'] #获取图片验证码上的内容
-driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div/div[2]/form/div[2]/div[3]/div/div[1]/input').send_keys(image_num) #输入图片验证码
+image_num = image_json['words_result'][0]['words'] #获取图片验证码上的内容，……先拿字典里面的，然后字典里面有一个序列，序列里面又有一个字典
+driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div/div[2]/form/div[2]/div[3]/div/div[1]/input').send_keys(image_num)
+
+#点击登录
+driver.find_element_by_css_selector('button[type="button"]').click()
+
+
 

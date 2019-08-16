@@ -479,7 +479,123 @@ if __name__=='__main__':
 # driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div/div[2]/form/div[2]/div[3]/div/div[1]/input').send_keys(image_num)
 
 
+####################################################################################
+#十五、selenium模拟快捷键操作
+
+# from selenium import webdriver
+# from selenium.webdriver.common.action_chains import ActionChains  #引入actionchains
+# from selenium.webdriver.common.keys import Keys  ########################引入特殊键的库
+
+# driver=webdriver.Chrome()
+
+# driver.get('http://39.107.96.138:3000/signin')   # 账号密码user1 123456
+
+# driver.find_element_by_xpath('//*[@id="name"]').send_keys('user1')
+# driver.find_element_by_xpath('//*[@id="pass"]').send_keys('123456')
+# driver.find_element_by_css_selector('input[type="submit"]').click()
+
+# driver.find_element_by_xpath('//*[@id="create_topic_btn"]').click() #打开发布话题
+# driver.find_element_by_xpath('//*[@id="tab-value"]').click()  #点击选择框
+# driver.find_element_by_xpath('//*[@id="tab-value"]/option[2]').click()  #下拉框选择
+# driver.find_element_by_xpath('//*[@id="title"]').send_keys('helloword1') #输入主题
+
+# content_area = driver.find_element_by_xpath('//*[@class="CodeMirror-scroll"]')  #鼠标移动到文本编辑器
+# content_area.click() #点击后才能输入内容
+
+# actions = ActionChains(driver)
+# actions.move_to_element(content_area)
+# actions.send_keys('hff而且')
+
+# ###################在文本输入框里模拟快捷键Ctrl+b的操作
+
+# actions.key_down(Keys.CONTROL)
+# actions.send_keys('b')
+# actions.key_up(Keys.CONTROL)
+
+# actions.perform()
+
+####################################################################################
+#十六、selenium爬虫-微博搜索页面操作
+
+# from selenium import webdriver
+
+# driver=webdriver.Chrome()
+
+# driver.get('https://s.weibo.com/')  
+
+# driver.find_element_by_css_selector('div[class="search-input"]>input[type="text"]').send_keys('web自动化') #输入图片验证码
+# driver.find_element_by_css_selector('.s-btn-b').click()
+
+
+
+
+
+
+
+
+
+
+
 
 
 ####################################################################################
-#十五、
+#十七、微博搜索结果写入文件
+
+
+
+
+
+####################################################################################
+#十八、selenium执行JavaScript命令
+
+# from selenium import webdriver
+
+# driver=webdriver.Chrome()
+
+# js = 'document.querySelector("#local_news > div.column-title-home > div").scrollIntoView()'  #js只能用css查找，赵大鹏数据，鼠标滚动到此处
+
+# driver.get('http://news.baidu.com/')  
+
+# driver.execute_script(js)
+
+
+####################################################################################
+#十九、python 定时任务
+##https://github.com/dbader/schedule
+##pip install schedule
+
+# import schedule
+# import time
+
+
+# def job():
+#     print("I'm working...")
+
+# schedule.every(1).minutes.do(job)  #每1分钟执行一次
+# # schedule.every().hour.do(job)   #每隔一小时执行一次任务
+# # schedule.every().day.at("10:30").do(job)  #每天的10:30执行一次任务
+# # schedule.every(5).to(10).minutes.do(job)  #每隔5到10天执行一次任务 
+# # schedule.every().monday.do(job)   #每周一的这个时候执行一次任务
+# # schedule.every().wednesday.at("13:15").do(job)   #每周三13:15执行一次任务
+# # schedule.every().minute.at(":17").do(job)
+
+# while True:
+#     schedule.run_pending()  #运行所有可以运行的任务
+#     time.sleep(1)
+
+
+
+####################################################################################
+#二十、selenum切换iframe
+
+# from selenium import webdriver
+
+# driver=webdriver.Chrome()
+
+# driver.get('https://login.anjuke.com/login/form')  
+
+
+# iframeEle = driver.find_element_by_id('iframeLoginIfm')
+# driver.switch_to.frame(iframeEle)
+
+# driver.find_element_by_id('phoneIpt').send_keys('15256558113')
