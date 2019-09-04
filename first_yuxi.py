@@ -552,7 +552,7 @@ if __name__=='__main__':
 
 # driver=webdriver.Chrome()
 
-# js = 'document.querySelector("#local_news > div.column-title-home > div").scrollIntoView()'  #js只能用css查找，赵大鹏数据，鼠标滚动到此处
+# js = 'document.querySelector("#local_news > div.column-title-home > div").scrollIntoView()'  #js只能用css查找，鼠标滚动到此处
 
 # driver.get('http://news.baidu.com/')  
 

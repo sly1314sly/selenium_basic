@@ -1,5 +1,7 @@
 # 第一堂课
 
+# selenium  API：https://selenium-python-zh.readthedocs.io/en/latest/navigating.html
+#                https://selenium-python.readthedocs.io/api.html
 # 一：chrome开发工具使用说明
 # 把chromedriver放到环境变量，不用每次加命令
 # terminal 终端输入which python3（mac电脑）  windows电脑用where python
