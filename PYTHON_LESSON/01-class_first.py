@@ -160,7 +160,7 @@ print(string[::2]) #步长为2，每两位取值，取第一个。
 print(string[4::2]) #从下标第四个开始取值，步长为2。
 
 # 字符串的方法
-
+string = '0123456789'
 string.join
 
 print(string.count('0'))  #计算字符串中0出现的次数，统计

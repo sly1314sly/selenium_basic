@@ -1,4 +1,4 @@
-#登录
+# #登录
 
 from selenium import webdriver  
 import requests,base64
@@ -42,6 +42,4 @@ driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div/div[2]/fo
 
 #点击登录
 driver.find_element_by_css_selector('button[type="button"]').click()
-
-
 

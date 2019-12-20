@@ -6,7 +6,7 @@
 # 把chromedriver放到环境变量，不用每次加命令
 # terminal 终端输入which python3（mac电脑）  windows电脑用where python
 # 用open命令打开 此路径  open /Library/Frameworks/Python.framework/Versions/3.7/bin/   windows用start
-
+# http://npm.taobao.org/mirrors/chromedriver/ 下载
 
 #二、用id元素定位
 # from selenium import webdriver
