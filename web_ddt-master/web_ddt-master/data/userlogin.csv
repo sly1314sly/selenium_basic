@@ -1,0 +1,6 @@
+﻿username,passwd,excpetStatus,checkpoint
+testuser3,123456,sucess,testuser3
+testuser3,,fail,信息不完整。
+,123456,fail,信息不完整。
+ssss,12222,fail,用户名或密码错误
+,,fail,信息不完整。

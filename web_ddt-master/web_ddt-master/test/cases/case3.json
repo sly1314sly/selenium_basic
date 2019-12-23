@@ -1,0 +1,26 @@
+{
+    "register_success01": {
+        "username": "xxxxxxeeee11",
+        "password": "12345",
+        "repass": "12345",
+        "email": "xxxxxxeeee11@11.com",
+        "status":true,
+        "message": "欢迎加入 Nodeclub！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。"
+    },
+    "register_success02": {
+        "username": "xxxxxxeeee22",
+        "password": "12345",
+        "repass": "12345",
+        "email": "xxxxxxeeee22@11.com",
+        "status":true,
+        "message": "欢迎加入 Nodeclub！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。"
+    },
+    "register_success03": {
+        "username": "xxxxxxeeee33",
+        "password": "12345",
+        "repass": "12345",
+        "email": "xxxxxxeeee33@11.com",
+        "status":true,
+        "message": "欢迎加入 Nodeclub！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。"
+    }
+}
